@@ -59,7 +59,7 @@ def home(request):
 
 
 def myhome(request):
-    # channels = Channel.objects.all
+    channels = Channel.objects.all
     print("this the channel", channels)
     return render(request, 'channels/index.html', {"channels": channels})
 
@@ -71,3 +71,11 @@ def myhome(request):
     # def message_in_channel(request):
     #   print("this the channel", channels)
     # return render(request, 'channels/index.html', {"channels": channels})
+
+def index(request):
+    return render(request, 'chat/index.html')
+
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name': room_name
+    })
